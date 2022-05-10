@@ -1,25 +1,27 @@
+Repeat step 3 and add your AWS_ACCESS_KEY_ID and click the Add secret button.
+Next, create the actions.yaml file in the .github/workflows directory with the following code:
+
 name: Deploy Infrastructure
+
 on:
   push:
     branches:
-      - main
+      - master
+
 jobs:
   tf_fmt:
-    name: terraform infrastructure
+    name: Deploy Site
     runs-on: self-hosted
     steps:
 
     - name: Checkout Repo
-    - uses: actions/checkout@v1
-   
+      uses: actions/checkout@v1
 
-    - name: Terraform Validate  
-    - uses: hashicorp/terraform-github-actions/init@v0.4.0
+    - name: Terraform Init
+      uses: hashicorp/terraform-github-actions/init@v0.4.0
 
-    - name: Terraform Validate   
-    - uses: hashicorp/terraform-github-actions/validate@v0.3.7
-  
+    - name: Terraform Validate
+      uses: hashicorp/terraform-github-actions/validate@v0.3.7
 
-    - name: Terraform Apply     
-    - uses: hashicorp/terraform-github-actions/apply@v0.4.0 
- 
+    - name: Terraform Apply
+      uses: hashicorp/terraform-github-actions/apply@v0.4.0
