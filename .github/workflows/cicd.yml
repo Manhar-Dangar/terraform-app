@@ -21,5 +21,5 @@ jobs:
   
 
     - name: Terraform Apply     
-    - uses: hashicorp/terraform-github-actions/apply@v0.4.0
+    - uses: hashicorp/terraform-github-actions/apply@v0.4.0 
  
