@@ -11,19 +11,19 @@ jobs:
     steps:
 
     - name: Checkout Repo
-      uses: actions/checkout@v1
-
+    - uses: actions/checkout@v1
+   
 
     - name: Terraform Validate
-      working-directory: ./dev     
-      uses: hashicorp/terraform-github-actions/init@v0.4.0
+    - run: cd ./dev    
+    - uses: hashicorp/terraform-github-actions/init@v0.4.0
      
 
-    - name: Terraform Validate
-      working-directory: ./dev     
-      uses: hashicorp/terraform-github-actions/validate@v0.3.7
+    - name: Terraform Validate 
+    - run: cd ./dev        
+    - uses: hashicorp/terraform-github-actions/validate@v0.3.7
 
-    - name: Terraform Apply
-      working-directory: ./dev     
-      uses: hashicorp/terraform-github-actions/apply@v0.4.0
+    - name: Terraform Apply  
+    - run: cd ./dev        
+    - uses: hashicorp/terraform-github-actions/apply@v0.4.0
  
