@@ -3,7 +3,9 @@ on:
   push:
     branches:
       - main
-
+defaults:
+  run:
+    working-directory: dev
 jobs:
   tf_fmt:
     name: terraform infrastructure
@@ -14,16 +16,13 @@ jobs:
     - uses: actions/checkout@v1
    
 
-    - name: Terraform Validate
-    - run: cd ./dev    
+    - name: Terraform Validate  
     - uses: hashicorp/terraform-github-actions/init@v0.4.0
      
 
-    - name: Terraform Validate 
-    - run: cd ./dev        
+    - name: Terraform Validate   
     - uses: hashicorp/terraform-github-actions/validate@v0.3.7
 
-    - name: Terraform Apply  
-    - run: cd ./dev        
+    - name: Terraform Apply     
     - uses: hashicorp/terraform-github-actions/apply@v0.4.0
  
