@@ -6,22 +6,20 @@ on:
 jobs:
   tf_fmt:
     name: terraform infrastructure
-    runs-on: self-runner
+    runs-on: self-hosted
     steps:
 
     - name: Checkout Repo
     - uses: actions/checkout@v1
-    - run: ./dev
    
 
     - name: Terraform Validate  
     - uses: hashicorp/terraform-github-actions/init@v0.4.0
-    - run: ./dev     
 
     - name: Terraform Validate   
     - uses: hashicorp/terraform-github-actions/validate@v0.3.7
-    - run: ./dev    
+  
 
     - name: Terraform Apply     
     - uses: hashicorp/terraform-github-actions/apply@v0.4.0
-    - run: ./dev 
+ 
