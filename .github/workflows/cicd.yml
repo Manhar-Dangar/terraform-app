@@ -1,35 +1,29 @@
-cret button.
-Next, create the actions.yaml file in the .github/workflows directory with the following code:
-
 name: Deploy Infrastructure
-
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   tf_fmt:
-    name: Deploy Site
+    name: terraform infrastructure
     runs-on: ubuntu-latest
     steps:
 
     - name: Checkout Repo
       uses: actions/checkout@v1
 
-      - name: Terraform Validate
-        run: |
-          cd dev       
+
+    - name: Terraform Validate
+      working-directory: ./dev     
       uses: hashicorp/terraform-github-actions/init@v0.4.0
      
 
     - name: Terraform Validate
-        run: |
-          cd dev      
+      working-directory: ./dev     
       uses: hashicorp/terraform-github-actions/validate@v0.3.7
 
     - name: Terraform Apply
-        run: |
-          cd dev      
+      working-directory: ./dev     
       uses: hashicorp/terraform-github-actions/apply@v0.4.0
  
