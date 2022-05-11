@@ -3,12 +3,12 @@ name: Deploy Infrastructure
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   tf_fmt:
     name: Deploy Site
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
 
     - name: Checkout Repo
