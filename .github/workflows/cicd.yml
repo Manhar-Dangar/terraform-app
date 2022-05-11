@@ -1,17 +1,19 @@
 name: Deploy Infrastructure
 
-on:
-  push:
-    branches:
-      - main
-
+on: 
+  workflow_dispatch:
+    inputs:
+      git-ref:
+        description: Git Ref (Optional)
 jobs:
   terraform:
     name: 'Terraform'
     runs-on: self-hosted
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
       
@@ -25,7 +27,11 @@ jobs:
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
+        
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=true
+      - run: |
+          echo "Log level: ${{ github.event.inputs.logLevel }}"
+          echo "Tags: ${{ github.event.inputs.tags }}"   
  
