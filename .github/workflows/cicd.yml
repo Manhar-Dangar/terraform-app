@@ -9,9 +9,9 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: 'Checkout'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v1
       - name: 'Terraform Init'
-        uses: hashicorp/terraform-github-actions@main
+        uses: hashicorp/terraform-github-actions@v1
         with:
           tf_actions_version: 0.12.13
           tf_actions_subcommand: 'init'
