@@ -25,5 +25,5 @@ module "my_ec2" {
   ec2_count     = 1
   ec2_type      = "t3.micro"
   subnet_id     = "${module.my_vpc.subnet_id}"
-  ec2_tag       = "my_ec2"
+  ec2_tag       = "stageec2"
 } 
