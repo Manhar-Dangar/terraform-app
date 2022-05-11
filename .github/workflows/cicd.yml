@@ -17,13 +17,21 @@ jobs:
       run: ./dev      
     - name: Terraform Init
       uses: hashicorp/terraform-github-actions/init@v0.4.0
+      env:
+        TF_ACTION_WORKING_DIR: ./dev
       
     - name: goes to dev
       run: ./dev    
     - name: Terraform Validate
       uses: hashicorp/terraform-github-actions/validate@v0.3.7
+      env:
+        TF_ACTION_WORKING_DIR: ./dev
+            
       
     - name: goes to dev
       run: ./dev    
     - name: Terraform Apply
       uses: hashicorp/terraform-github-actions/apply@v0.4.0
+      env:
+        TF_ACTION_WORKING_DIR: ./dev
+      
