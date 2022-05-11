@@ -22,8 +22,8 @@ module "my_vpc" {
 
 module "my_ec2" {
   source        = "./modules/ec2"
-  ec2_count     = 1
+  ec2_count     = 2
   ec2_type      = "t3.micro"
   subnet_id     = "${module.my_vpc.subnet_id}"
-  ec2_tag       = "stageec2"
+  ec2_tag       = "mystageec2"
 } 
