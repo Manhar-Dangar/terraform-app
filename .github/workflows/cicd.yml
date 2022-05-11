@@ -13,7 +13,10 @@ jobs:
 
     - name: Checkout Repo
       uses: actions/checkout@v1
-
+    - name: Build image
+      run: |
+        pwd
+        ls -R
     - name: Terraform Init
       uses: hashicorp/terraform-github-actions/init@v0.4.0
 
