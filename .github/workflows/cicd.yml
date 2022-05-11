@@ -4,33 +4,18 @@ on:
     branches:
       - main
 jobs:
-  directory1:
-    name: 'Terraform Dev'
+  root:
+    name: 'Terraform (root)'
     runs-on: self-hosted
     steps:
       - name: 'Checkout'
-        uses: actions/checkout@main
+        uses: actions/checkout@v4
       - name: 'Terraform Init'
-        uses: hashicorp/terraform-github-actions/apply@v0.4.0
+        uses: hashicorp/terraform-github-actions@main
         with:
           tf_actions_version: 0.12.13
           tf_actions_subcommand: 'init'
-          tf_actions_working_dir: '/.dev'
-          tf_actions_comment: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  directory2:
-    name: 'Terraform prod'
-    runs-on: self-hosted
-    steps:
-      - name: 'Checkout'
-        uses: actions/checkout@main
-      - name: 'Terraform Init'
-        uses: hashicorp/terraform-github-actions/apply@v0.4.0
-        with:
-          tf_actions_version: 0.12.13
-          tf_actions_subcommand: 'init'
-          tf_actions_working_dir: '/.prod'
+          tf_actions_working_dir: '.'
           tf_actions_comment: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
