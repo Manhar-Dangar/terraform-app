@@ -10,7 +10,7 @@ variable "ec2_type"{
     default = "t2.micro"
 }
 
-varible "key_name"{
+variable "keyname"{
     default = "autoscaling-key"
 }
 
