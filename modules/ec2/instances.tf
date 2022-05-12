@@ -3,7 +3,7 @@ resource "aws_instance" "app" {
   ami           = "${var.ami_id}"
   instance_type = "${var.ec2_type}"
   subnet_id     = "${var.subnet_id}"
-  key_name      = "${var.key_name}"
+  key_name      = "${var.keyname}"
  user_data = <<EOF
     #! /bin/bash
                 sudo yum update -y
